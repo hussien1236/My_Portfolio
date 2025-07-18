@@ -1,0 +1,184 @@
+@import "tailwindcss";
+
+body{
+  background-color: #161513;
+  margin-left: 7%;
+  margin-right: 7%;
+  color: white;
+  cursor: none !important;
+}
+.primary_button{
+    padding: 15px 20px;
+    border-radius: 50px;
+    font-weight: 600;
+    background: linear-gradient(267deg, #DA7C25 .36%, #B923E1 102.06%);
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.5s;
+    outline: 2px solid transparent;
+}
+.primary_button:hover{
+  outline: 2px solid white;
+  cursor: pointer;
+}
+.secondary_button{
+  padding: 15px 25px;
+  font-weight: 600;
+  border-radius: 50px;
+  background:#161513;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.5s;
+  outline: 2px solid white;
+}
+.secondary_button:hover{
+outline: 2px solid #B415FF;
+}
+.colored_text{
+  background: linear-gradient(270deg, #DF8908 10%, #B415FF 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.section_title{
+  padding: 0 30px;
+  font-size: 40px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.home_title{
+  font-size: 30px;
+  font-weight: 600;
+}
+
+@media (min-width: 640px) {
+  .section_title {
+    font-size: 50px;
+  }
+  .home_title {
+    font-size: 45px;
+  }
+}
+
+@media (min-width: 768px) {
+  .section_title {
+    font-size: 55px;
+  }
+  .home_title {
+    font-size: 50px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section_title {
+    font-size: 60px;
+  }
+  .home_title {
+    font-size: 55px;
+  }
+}
+.nav_links li{
+  transition: 0.2s;
+}
+.nav_links li:hover{
+cursor: pointer;
+color: #B415FF;
+}
+.contact_input{
+  border: none;
+    width: 100%;
+    padding: 18px 0 18px 20px;
+    border-radius: 4px;
+    background: #32323c;
+    color: #a0a0a0;
+    font-family: Outfit;
+    transition:0.5s;
+    font-size: 18px;
+    outline: 2px solid transparent;
+} 
+.contact_input:focus{
+  outline:2px solid #B415FF;
+}
+
+@media (max-width: 986px){
+  body{
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  .primary_button{
+    padding: 10px 15px;
+
+  }
+  .secondary_button{
+    padding:10px 20px;
+  }
+}
+
+.gradient-text {
+  font-size: 30px;
+  font-weight: 700;
+  background: linear-gradient(270deg, #DF8908 80%, #B415FF 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+@media (min-width: 640px) {
+  .gradient-text {
+    font-size: 36px;
+  }
+}
+
+@media (min-width: 768px) {
+  .gradient-text {
+    font-size: 44px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .gradient-text {
+    font-size: 50px;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+@keyframes slide-in-right {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+.animate-slide-in-right {
+  animation: slide-in-right 0.3s ease;
+}
+
+.typewriter-cursor {
+  color: white !important;
+  -webkit-text-fill-color: white !important;
+  background: none !important;
+}
+.blinking-cursor {
+  animation: blink 1s step-start infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+.hide-scrollbar {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+button{
+  cursor: pointer;
+}
