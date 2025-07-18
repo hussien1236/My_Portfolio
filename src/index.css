@@ -41,8 +41,7 @@ outline: 2px solid #B415FF;
     -webkit-text-fill-color: transparent;
 }
 .section_title{
-  padding: 0 30px;
-  font-size: 40px;
+  font-size: 30px;
   font-weight: 600;
   white-space: nowrap;
 }

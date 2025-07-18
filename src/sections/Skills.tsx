@@ -3,6 +3,7 @@ import SkillCard from '../components/SkillCard'
 import reactLogo from '../assets/react.svg';
 import Backend from '../assets/Backend.png';
 import DBLogo from '../assets/DBLogo.png';
+import DevTools from '../assets/DevTools.png'
 import { useEffect, useState } from 'react';
 import { client } from '../sanity';
 
@@ -28,7 +29,7 @@ const categoryMeta = {
     description: 'Designing and managing relational and cloud databases.'
   },
   tools: {
-    icon: <span role="img" aria-label="tools">🛠️</span>,
+    icon: <img src={DevTools} alt="Databases" style={{ width: 42, height: 42 }} />,
     title: 'Dev Tools & Other',
     description: 'Modern development, version control, and deployment tools.'
   }
