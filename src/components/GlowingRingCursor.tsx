@@ -2,7 +2,6 @@ import { useState, useEffect, useRef } from 'react';
 
 const GlowingRingCursor = () => {
   const [mousePosition, setMousePosition] = useState({ x: -100, y: -100 });
-  const [isHovering, setIsHovering] = useState(false);
   const [ringPositions, setRingPositions] = useState([
     { x: -100, y: -100 }, // outer ring
     { x: -100, y: -100 }, // middle ring
@@ -77,7 +76,7 @@ const GlowingRingCursor = () => {
         style={{
           left: ringPositions[0].x - 12,
           top: ringPositions[0].y - 12,
-          transform: isHovering ? 'scale(1.1)' : 'scale(1)',
+          transform: 'scale(1)',
           transition: 'transform 0.2s ease-out',
         }}
       >
@@ -90,7 +89,7 @@ const GlowingRingCursor = () => {
         style={{
           left: ringPositions[1].x - 20,
           top: ringPositions[1].y - 20,
-          transform: isHovering ? 'scale(1.2)' : 'scale(1)',
+          transform: 'scale(1)',
           transition: 'transform 0.2s ease-out',
         }}
       >
@@ -103,7 +102,7 @@ const GlowingRingCursor = () => {
         style={{
           left: ringPositions[2].x - 30,
           top: ringPositions[2].y - 30,
-          transform: isHovering ? 'scale(1.3)' : 'scale(1)',
+          transform: 'scale(1)',
           transition: 'transform 0.2s ease-out',
         }}
       >

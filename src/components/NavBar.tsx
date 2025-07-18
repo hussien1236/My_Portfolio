@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Code, Contact2, Home, Menu, User, X, Briefcase } from "lucide-react";
+import { useState } from "react";
+import { Code, Contact2, Home, Menu, X, Briefcase } from "lucide-react";
 
 const NavBar = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);

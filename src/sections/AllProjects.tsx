@@ -23,11 +23,9 @@ interface AllProjectsOverlayProps {
 }
 
 const AllProjectsOverlay: React.FC<AllProjectsOverlayProps> = ({ projects, isOpen, onClose }) => {
-  const [filter, setFilter] = useState<string>('all');
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
-  const categories: string[] = ['all', 'web', 'mobile', 'ai', 'tools'];
   const filteredProjects = projects.filter((project: Project) => {
     const matchesSearch = project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
       project.description.toLowerCase().includes(searchTerm.toLowerCase());
