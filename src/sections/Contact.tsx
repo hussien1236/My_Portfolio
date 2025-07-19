@@ -2,6 +2,7 @@ import React from "react";
 import SectionTitle from "../components/SectionTitle"
 import { toast } from 'react-toastify';
 import { Loader2, Mail, Phone, MapPin } from "lucide-react"
+import { motion } from "framer-motion";
 const Contact = () => {
   const [result, setResult] = React.useState("");
 
@@ -36,9 +37,17 @@ const Contact = () => {
         <div className="grid grid-cols-2 max-sm:grid-cols-1 w-full justify-between md:mt-20 mt-10 gap-10">
            <div className="flex flex-col gap-5">
             <h1 className="gradient-text font-bold">Let's talk</h1>
-            <p className="text-md text-gray-300">I'm a Fullstack Web Developer with a Bachelor's degree in Computer Science, specializing in building modern, responsive web applications using React.js and ASP.NET Core. I enjoy creating efficient, scalable solutions and continuously exploring new technologies. I'm excited to contribute to meaningful projects and grow professionally in the world of web development.
-            <br/><span className="font-bold">Feel free to reach out — I'm always open to new opportunities and collaborations.
-            </span></p>
+            <motion.p
+              className="text-md text-gray-300"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, ease: 'easeOut' }}
+              viewport={{ amount: 0.5 }}
+            >
+              I'm a Fullstack Web Developer with a Bachelor's degree in Computer Science, specializing in building modern, responsive web applications using React.js and ASP.NET Core. I enjoy creating efficient, scalable solutions and continuously exploring new technologies. I'm excited to contribute to meaningful projects and grow professionally in the world of web development.
+              <br/><span className="font-bold">Feel free to reach out — I'm always open to new opportunities and collaborations.
+              </span>
+            </motion.p>
             <div className="flex flex-col gap-5 mt-2">
                <div className="flex items-center gap-2"><Mail className="text-gray-300" /><span>hussienhamdan06@gmail.com</span></div>
                <div className="flex items-center gap-2"><Phone className="text-gray-300" /><span>+961 81 707 397</span></div>

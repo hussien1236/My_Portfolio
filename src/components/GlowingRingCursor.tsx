@@ -1,6 +1,16 @@
 import { useState, useEffect, useRef } from 'react';
 
+const isTouchDevice = () => {
+  if (typeof window === 'undefined') return false;
+  return (
+    'ontouchstart' in window ||
+    navigator.maxTouchPoints > 0 ||
+    ('msMaxTouchPoints' in navigator && (navigator as any).msMaxTouchPoints > 0)
+  );
+};
+
 const GlowingRingCursor = () => {
+  const [showCursor, setShowCursor] = useState(true);
   const [mousePosition, setMousePosition] = useState({ x: -100, y: -100 });
   const [ringPositions, setRingPositions] = useState([
     { x: -100, y: -100 }, // outer ring
@@ -11,51 +21,47 @@ const GlowingRingCursor = () => {
   const animationRef = useRef<number | null>(null);
 
   useEffect(() => {
+    if (isTouchDevice()) {
+      setShowCursor(false);
+      return;
+    }
     const updateMousePosition = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
     };
-
     window.addEventListener('mousemove', updateMousePosition);
     return () => window.removeEventListener('mousemove', updateMousePosition);
   }, []);
 
   useEffect(() => {
+    if (!showCursor) return;
     const animateRings = () => {
       setRingPositions(prev => {
         const newPositions = [...prev];
-        
-        // Inner ring (smallest) follows mouse directly
         newPositions[0] = {
           x: newPositions[0].x + (mousePosition.x - newPositions[0].x) * 0.15,
           y: newPositions[0].y + (mousePosition.y - newPositions[0].y) * 0.15,
         };
-        
-        // Middle ring follows inner ring
         newPositions[1] = {
           x: newPositions[1].x + (newPositions[0].x - newPositions[1].x) * 0.12,
           y: newPositions[1].y + (newPositions[0].y - newPositions[1].y) * 0.12,
         };
-        
-        // Outer ring (largest) follows middle ring
         newPositions[2] = {
           x: newPositions[2].x + (newPositions[1].x - newPositions[2].x) * 0.08,
           y: newPositions[2].y + (newPositions[1].y - newPositions[2].y) * 0.08,
         };
-        
         return newPositions;
       });
-      
       animationRef.current = requestAnimationFrame(animateRings);
     };
-
     animationRef.current = requestAnimationFrame(animateRings);
-    
     return () => {
       if (typeof animationRef.current === 'number') {
         cancelAnimationFrame(animationRef.current);
       }
     };
-  }, [mousePosition]);
+  }, [mousePosition, showCursor]);
+
+  if (!showCursor) return null;
 
   return (
     <div style={{ cursor: 'none' }}>
