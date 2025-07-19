@@ -41,7 +41,6 @@ const Projects = () => {
         }`
       )
       .then((data) => {
-        console.log('Fetched projects:', data);
         setProjects(data)
       })
   }, [])
