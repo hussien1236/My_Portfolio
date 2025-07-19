@@ -15,7 +15,7 @@ const ParticlesBackground = () => {
     })
   }, [])
 
-  const particlesLoaded = async (container?: Container): Promise<void> => {
+  const particlesLoaded = async (): Promise<void> => {
   }
 
   if (init) {
