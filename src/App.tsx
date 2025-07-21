@@ -11,6 +11,7 @@ import Footer from './sections/Footer'
 import Experience from './sections/Experience'
 import { motion, useScroll } from "framer-motion"
 import GlowingRingCursor from './components/GlowingRingCursor'
+import { Analytics } from "@vercel/analytics/react"
 
 function App() {
   const { scrollYProgress } = useScroll()
@@ -41,6 +42,7 @@ function App() {
       <Contact/>
       <Footer/>
       <ToastContainer />
+      <Analytics/>
     </>
   )
 }
