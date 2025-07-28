@@ -4,7 +4,7 @@ import reactLogo from '../assets/react.svg';
 import Backend from '../assets/Backend.png';
 import DBLogo from '../assets/DBLogo.png';
 import DevTools from '../assets/DevTools.png'
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { client } from '../sanity';
 
 interface Skill {
@@ -56,25 +56,76 @@ const Skills = () => {
   skills.forEach(skill => {
     if (grouped[skill.category]) grouped[skill.category].push(skill.name);
   });
+  const [visibleCards, setVisibleCards] = useState(new Set());
+  const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    const observers: IntersectionObserver[] = [];
+
+    cardsRef.current.forEach((card, index) => {
+      if (!card) return;
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              // Add delay based on card position for staggered effect
+              setTimeout(() => {
+                setVisibleCards(prev => new Set([...prev, index]));
+              }, index * 150); // 150ms delay between each card
+            }
+            else {
+              // Remove card from visible set when it leaves viewport
+              setVisibleCards(prev => {
+                const newSet = new Set(prev);
+                newSet.delete(index);
+                return newSet;
+              });
+            }
+          });
+        },
+        {
+          threshold: 0.1, // Trigger when 10% of the card is visible
+          rootMargin: '-50px 0px', // Start animation slightly before card enters viewport
+        }
+      );
+
+      observer.observe(card);
+      observers.push(observer);
+    });
+
+    return () => {
+      observers.forEach(observer => observer.disconnect());
+    };
+  }, []);
 
   return (
     <div id="skills">
       <div className='flex flex-col justify-center items-center md:mt-40 mt-20'>
         <SectionTitle title={'My Skills'} />
         <div className='grid grid-cols-2 max-sm:grid-cols-1 gap-5 md:mt-20 mt-10 w-full'>
-          {Object.entries(categoryMeta).map(([cat, meta]) => (
-            <SkillCard
+          {Object.entries(categoryMeta).map(([cat, meta], index) => (
+            <div
               key={cat}
-              icon={meta.icon}
-              title={meta.title}
-              description={meta.description}
-              skills={grouped[cat]}
-            />
+              ref={el => { cardsRef.current[index] = el; }}
+                className={`transform transition-all duration-700 ease-out ${
+                visibleCards.has(index)
+                  ? 'translate-y-0 opacity-100'
+                  : 'translate-y-8 opacity-0'
+              }`}
+            >
+              <SkillCard
+                icon={meta.icon}
+                title={meta.title}
+                description={meta.description}
+                skills={grouped[cat]}
+              />
+            </div>
           ))}
         </div>
         {loading && <div className="text-gray-400 mt-4">Loading skills...</div>}
       </div>
     </div>
-  )
-}
+  );
+};
 export default Skills

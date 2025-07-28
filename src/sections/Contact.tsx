@@ -48,25 +48,48 @@ const Contact = () => {
               <br/><span className="font-bold">Feel free to reach out — I'm always open to new opportunities and collaborations.
               </span>
             </motion.p>
-            <div className="flex flex-col gap-5 mt-2">
+            <motion.div className="flex flex-col gap-5 mt-2"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, ease: 'easeOut' }}
+              viewport={{ amount: 0.5 }}
+            >
                <div className="flex items-center gap-2"><Mail className="text-gray-300" /><span>hussienhamdan06@gmail.com</span></div>
                <div className="flex items-center gap-2"><Phone className="text-gray-300" /><span>+961 81 707 397</span></div>
                <div className="flex items-center gap-2"><MapPin className="text-gray-300" /><span>Beirut, Lebanon</span></div>
-            </div>
+          </motion.div>
            </div>
            <form onSubmit={onSubmit} className="flex flex-col w-full gap-5">
-            <div className="flex flex-col gap-2">
+            <motion.div className="flex flex-col gap-2"
+             initial={{ opacity: 0, y: 10 }}
+             whileInView={{ opacity: 1, y: 0 }}
+             transition={{ duration: 0.7, ease: 'easeOut' }}
+             viewport={{ amount: 0.5 }}>
            <label htmlFor="Name" className=" font-semibold">Your Name</label>
            <input type="text" name="Name" placeholder="Enter your name" className="contact_input" required/>
-           </div>
-           <div className="flex flex-col gap-2">
+           </motion.div>
+           <motion.div className="flex flex-col gap-2"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: 'easeOut' }}
+            viewport={{ amount: 0.5 }}>
            <label htmlFor="Email" className=" font-semibold">Your Email</label>
            <input type="Email" name="Email" placeholder="Enter your email" className="contact_input" required/>
-           </div>
-           <div className="flex flex-col gap-2">
+           </motion.div>
+           <motion.div className="flex flex-col gap-2"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: 'easeOut' }}
+            viewport={{ amount: 0.5 }}>
            <label htmlFor="message" className=" font-semibold">Write your message here</label>
            <textarea name="message" rows={8} placeholder="Enter your message" className="contact_input" required/>
-           </div>
+           </motion.div>
+           <motion.div className="flex flex-col gap-5 mt-2"
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, ease: 'easeOut' }}
+              viewport={{ amount: 0.5 }}
+            >
            <button type="submit" className="primary_button w-2/6 min-w-fit whitespace-nowrap" disabled={result === "Sending...."}>
              {result === "Sending...." ? (
                <span className="flex items-center justify-center">
@@ -76,6 +99,7 @@ const Contact = () => {
                "Submit now"
              )}
            </button>
+           </motion.div>
            </form>
         </div>
       </div>

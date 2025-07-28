@@ -29,16 +29,16 @@ const NavBar = () => {
       {/* Sidebar Overlay */}
       {sidebarOpen && (
         <div className="fixed inset-0 z-40 flex flex-row-reverse backdrop-blur-xs bg-black/40">
-          <div className="max-sm:w-1/2 w-2/6 p-5 max-w-xs bg-white dark:bg-[#161513] h-full flex flex-col gap-8 animate-slide-in-right">
+          <div className="max-sm:w-2/3 w-2/6 p-5 max-w-xs bg-[#161513] h-full flex flex-col gap-8 animate-slide-in-right">
             <button className="self-end mb-8" onClick={() => setSidebarOpen(false)}>
               <X size={32} />
             </button>
             <ul className="flex flex-col gap-6 font-semibold text-lg nav_links">
-              <li> <a href="#home" onClick={() => setSidebarOpen(false)} className="flex items-center gap-2"><Home size={20}/>Home</a></li>
-              <li><a href="#skills" onClick={() => setSidebarOpen(false)} className="flex items-center gap-2"><Code size={20}/> Skills</a></li>
-              <li><a href="#experience" onClick={() => setSidebarOpen(false)} className="flex items-center gap-2"><Briefcase size={20}/> Experience</a></li>
-              <li> <a href="#projects" onClick={() => setSidebarOpen(false)} className="flex items-center gap-2"><Code size={20}/> Projects</a></li>
-              <li><a href="#contact" onClick={() => setSidebarOpen(false)}className="flex items-center gap-2"><Contact2/>Contact</a></li>
+              <li> <a href="#home" onClick={() => setSidebarOpen(false)} className="flex text-2xl items-center gap-2"><Home size={25}/>Home</a></li>
+              <li><a href="#skills" onClick={() => setSidebarOpen(false)} className="flex text-2xl items-center gap-2"><Code size={25}/> Skills</a></li>
+              <li><a href="#experience" onClick={() => setSidebarOpen(false)} className="flex text-2xl items-center gap-2"><Briefcase size={25}/> Experience</a></li>
+              <li> <a href="#projects" onClick={() => setSidebarOpen(false)} className="flex text-2xl items-center gap-2"><Code size={25}/> Projects</a></li>
+              <li><a href="#contact" onClick={() => setSidebarOpen(false)}className="flex text-2xl items-center gap-2"><Contact2 size={25}/>Contact</a></li>
             </ul>
             <a href='#contact' className="max-md:hidden">
             <button className="primary_button mt-8">Connect With Me</button>

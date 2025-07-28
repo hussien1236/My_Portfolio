@@ -67,7 +67,7 @@ const GlowingRingCursor = () => {
     <div style={{ cursor: 'none' }}>
       {/* Center point (follows mouse immediately) */}
       <div
-        className="fixed pointer-events-none z-50"
+        className="fixed pointer-events-none z-100"
         style={{
           left: mousePosition.x - 2,
           top: mousePosition.y - 2,
@@ -78,7 +78,7 @@ const GlowingRingCursor = () => {
 
       {/* Inner ring (smallest - follows mouse) */}
       <div
-        className="fixed pointer-events-none z-46"
+        className="fixed pointer-events-none z-99"
         style={{
           left: ringPositions[0].x - 12,
           top: ringPositions[0].y - 12,
@@ -91,7 +91,7 @@ const GlowingRingCursor = () => {
 
       {/* Middle ring (follows inner ring) */}
       <div
-        className="fixed pointer-events-none z-45"
+        className="fixed pointer-events-none z-98"
         style={{
           left: ringPositions[1].x - 20,
           top: ringPositions[1].y - 20,
@@ -104,7 +104,7 @@ const GlowingRingCursor = () => {
 
       {/* Outer ring (largest - follows middle ring) */}
       <div
-        className="fixed pointer-events-none z-40"
+        className="fixed pointer-events-none z-90"
         style={{
           left: ringPositions[2].x - 30,
           top: ringPositions[2].y - 30,
