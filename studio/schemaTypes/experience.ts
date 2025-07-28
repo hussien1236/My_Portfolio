@@ -15,6 +15,7 @@ export default {
         options: {
           list: [
             { title: 'Full-time', value: 'Full-time' },
+            { title: 'Project-Based', value: 'Project-Based' },
             { title: 'Part-time', value: 'Part-time' },
             { title: 'Freelance', value: 'Freelance' },
             { title: 'Internship', value: 'Internship' },
