@@ -26,7 +26,7 @@ const Home = () => {
 
   return (
     <div id="home">
-      <div className="flex flex-col justify-center items-center mt-10 lg:mx-30 gap-4">
+      <div className="flex flex-col justify-center items-center sm:mt-10 mt-20 lg:mx-30 gap-4">
         <div className="border-3 border-amber-600 lg:w-60 lg:h-60 md:w-50 md:h-50 w-40 h-40 rounded-full">
           {loading ? (
             <div className="w-full h-full flex items-center justify-center bg-gray-800 rounded-full">Loading...</div>
@@ -36,7 +36,7 @@ const Home = () => {
             <div className="w-full h-full flex items-center justify-center bg-gray-800 rounded-full">No Image</div>
           )}
         </div>
-        <div className="flex flex-col text-center items-center gap-2">
+        <div className="flex flex-col mt-5 text-center items-center gap-2">
           <div className="home_title font-semibold">
           <ShinyText className="text-2xl sm:text-5xl font-semibold colored_text">
   I'm Hussein Hamdan <br/> a Fullstack Developer Based in Lebanon
