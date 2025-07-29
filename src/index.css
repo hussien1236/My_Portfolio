@@ -181,3 +181,17 @@ html {
 button{
   cursor: pointer;
 }
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-gradient {
+  background: linear-gradient(270deg, #DF8908 80%, #B415FF 100%);
+  background-size: 200% auto;
+  animation: gradientShift 4s linear infinite;
+}
